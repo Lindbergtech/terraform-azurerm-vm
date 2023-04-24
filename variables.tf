@@ -9,3 +9,67 @@ variable "location" {
   type        = string
   default     = "West Europe"
 }
+
+variable "vnet_name" {
+  description = "The name of the Virtual Network"
+  type        = string
+  default     = "vnet-vm-t-weu-001"
+}
+
+variable "vnet_prefix" {
+  description = "The address space of the Virtual Network"
+  type        = string
+  default     = "10.0.0.0/22"
+}
+
+variable "subnet_name" {
+  description = "The name of the subnet"
+  type        = string
+  default     = "default"
+}
+
+variable "subnet_prefix" {
+  description = "The prefix of the subnet inside the Virtual Network"
+  type        = string
+  default     = "10.0.0.0/24"
+}
+
+variable "vm_name" {
+  description = "The name of the Virtual Machine"
+  type        = string
+  default     = "vm-test-weu-001"
+}
+
+variable "vm_size" {
+  description = "The size of the Virtual Machine"
+  type        = string
+  default     = "Standard_F2"
+}
+
+variable "username" {
+  description = "The username of the administrator account"
+  type        = string
+  default     = "admin001"
+}
+
+variable "password" {
+  description = "The password of the administrator account"
+  type        = string
+  sensitive   = true
+}
+
+variable "source_image_reference_var" {
+  description = "Settings for the source image in Azure for the Virtual Machine"
+  type = object({
+    publisher = string
+    offer     = string
+    sku       = string
+    version   = string
+  })
+  default = {
+    offer     = "MicrosoftWindowsServer"
+    publisher = "WindowsServer"
+    sku       = "2022-Datacenter"
+    version   = "latest"
+  }
+}

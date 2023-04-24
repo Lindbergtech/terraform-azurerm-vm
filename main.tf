@@ -22,7 +22,7 @@ resource "azurerm_subnet" "this" {
 }
 
 resource "azurerm_network_interface" "this" {
-  name                = "${var.rg_name}-nic"
+  name                = "${var.vm_name}-nic"
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
 
@@ -33,4 +33,28 @@ resource "azurerm_network_interface" "this" {
   }
 
   tags = local.tags
+}
+
+resource "azurerm_windows_virtual_machine" "this" {
+  name                = var.vm_name
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  size                = var.vm_size
+  admin_username      = var.username
+  admin_password      = var.password
+  network_interface_ids = [
+    azurerm_network_interface.this.id
+  ]
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = var.source_image_reference_var.publisher
+    offer     = var.source_image_reference_var.offer
+    sku       = var.source_image_reference_var.sku
+    version   = var.source_image_reference_var.version
+  }
 }

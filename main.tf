@@ -31,4 +31,6 @@ resource "azurerm_network_interface" "this" {
     subnet_id                     = azurerm_subnet.this.id
     private_ip_address_allocation = "Dynamic"
   }
+
+  tags = local.tags
 }

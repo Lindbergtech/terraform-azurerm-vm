@@ -43,7 +43,7 @@ variable "vm_name" {
 variable "vm_size" {
   description = "The size of the Virtual Machine"
   type        = string
-  default     = "Standard_F2"
+  default     = "Standard_B2s"
 }
 
 variable "username" {
@@ -67,9 +67,9 @@ variable "source_image_reference_var" {
     version   = string
   })
   default = {
-    offer     = "MicrosoftWindowsServer"
-    publisher = "WindowsServer"
-    sku       = "2022-Datacenter"
+    offer     = "WindowsServer"
+    publisher = "MicrosoftWindowsServer"
+    sku       = "2022-datacenter-azure-edition"
     version   = "latest"
   }
 }

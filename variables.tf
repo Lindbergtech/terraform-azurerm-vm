@@ -79,3 +79,8 @@ variable "nsg_name" {
   type        = string
   default     = "nsg-test-weu-001"
 }
+
+variable "your_public_ip" {
+  description = "Enter your public IP to open the network security group to allow you to RDP to the VM"
+  type        = string
+}

@@ -48,7 +48,7 @@ resource "azurerm_network_security_group" "this" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "3389"
-    source_address_prefix      = "62.63.254.4/32"
+    source_address_prefix      = var.your_public_ip
     destination_address_prefix = "*"
   }
 

@@ -73,3 +73,9 @@ variable "source_image_reference_var" {
     version   = "latest"
   }
 }
+
+variable "nsg_name" {
+  description = "The name of the Network Security Group"
+  type        = string
+  default     = "nsg-test-weu-001"
+}

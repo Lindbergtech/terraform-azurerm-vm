@@ -12,8 +12,8 @@ provider "azurerm" {
 }
 
 module "azurevm" {
-  source  = "carlzxc71/azurevm/azurerm"
-  version = "1.0.0"
+  source  = "carlzxc71/vm/azurerm"
+  version = "1.0.1"
 
   rg_name  = "rg-name"
   location = "location"

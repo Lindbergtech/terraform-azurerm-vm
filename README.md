@@ -13,7 +13,7 @@ provider "azurerm" {
 
 module "azurevm" {
   source  = "carlzxc71/vm/azurerm"
-  version = "1.0.1"
+  version = "1.0.2"
 
   rg_name  = "rg-name"
   location = "location"
@@ -26,6 +26,7 @@ module "azurevm" {
   vm_name  = "vm-name"
   vm_size  = "Standard_B2s"
   username = "username"
+  password = "password"
 
   source_image_reference_var = {
     publisher = "MicrososftWindowsServer"

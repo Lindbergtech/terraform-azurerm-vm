@@ -1,3 +1,7 @@
+## Deploy a virtual machine in Azure
+
+This Terraform module allowed you to deploy an Azure Virtual machine where you can open for your public IP so you can RDP into the machine. This is a part of my series practiving writing Terraform Modules. 
+
 ## Usage
 
 ```HCL
@@ -34,3 +38,16 @@ module "azurevm" {
   your_public_ip = "0.0.0.0/32"
 }
 ``` 
+
+## Requirements
+
+| Name                                                                      | Version       |
+|---------------------------------------------------------------------------|---------------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3        |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.50 |
+
+## Providers
+
+| Name                                                          | Version       |
+|---------------------------------------------------------------|---------------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.50 |
